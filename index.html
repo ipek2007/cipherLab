@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CipherLab — Kriptoqrafiya Laboratoriyası</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- AES-256 və SHA-256 üçün CryptoJS kitabxanası -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>CipherLab 🔐</h1>
+        <p>Kriptoqrafiya və Şifrələmə Əsaslarını Öyrən</p>
+
+        <div class="card">
+            <label for="inputText">Mətn daxil edin:</label>
+            <textarea id="inputText" placeholder="Şifrələmək istədiyiniz mətni yazın..."></textarea>
+
+            <label for="algoSelect">Şifrələmə Üsulu Seçin:</label>
+            <select id="algoSelect" onchange="toggleKeyInput()">
+                <option value="caesar">Sezar Şifri (Klassik)</option>
+                <option value="aes">AES-256 (Müasir Simmetrik)</option>
+                <option value="sha256">SHA-256 (Hash / Bütövlük)</option>
+            </select>
+
+            <div id="keySection">
+                <label for="secretKey" id="keyLabel">Sürüşdürmə miqdarı (Key):</label>
+                <input type="text" id="secretKey" value="3">
+            </div>
+
+            <div class="actions">
+                <button onclick="processEncrypt()">Şifrələ / Hash Yarat</button>
+                <button onclick="processDecrypt()" id="decryptBtn">Şifrəni Aç</button>
+            </div>
+        </div>
+
+        <div class="card result-card">
+            <h3>Nəticə:</h3>
+            <div id="outputText" class="output-box">Nəticə burada görünəcək...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
